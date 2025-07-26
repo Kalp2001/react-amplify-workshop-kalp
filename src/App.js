@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+  import React, { useEffect, useState } from 'react';
 import './App.css';
 import axios from 'axios';
 import { endpoint, API_PATH } from './constant';
@@ -21,7 +21,8 @@ function App() {
 
     const apiUrl = await getApiUrl("");
     await axios.get(apiUrl).then((response) => {
-      document.getElementById("message").innerHTML = response?.data?.message;
+      const message = response?.data?.message;
+      document.getElementById("message").innerHTML = message ? message : response?.data;
     }).catch((error) => {
       console.error("Error fetching users:", error);
     });
